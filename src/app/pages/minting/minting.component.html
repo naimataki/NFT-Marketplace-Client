@@ -1,0 +1,37 @@
+<p-toast></p-toast>
+<app-navbar></app-navbar>
+
+<div class="container">
+    <p-card styleClass="mycard">
+        <ng-template pTemplate="header">
+            <div class="form-header">MINT YOUR NFT</div>
+        </ng-template>
+        <form class="form-middle" (ngSubmit)="insertData()" [formGroup]="form">
+            <div class="p-col-12 p-md-4">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><fa-icon [icon]="paletteIcon"></fa-icon></span>
+                    <input type="text" pInputText placeholder="Name" formControlName="name" name="name">
+                </div>
+            </div>
+            <div class="p-col-12 p-md-4">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-tags" style="line-height: 1.25;"></i></span>
+                        <input type="text" pInputText placeholder="Price" formControlName="price" name="price">
+                    </div>
+            </div>
+            <div class="description-box">
+                    <textarea rows="5" cols="30" pInputTextarea [autoResize]="true" formControlName="description" name="description" placeholder="Tell us about your nft..."></textarea>
+            </div>
+            <div class="imageUpload-box">
+                <input pInputText type="file" accept="image/*" maxFileSize="1000000"
+                    (change)="onUpload($event)"/>
+                
+            </div>
+            <input value="Mint now" class="mybutton" type="submit">
+        </form>
+        <ng-template pTemplate="footer">
+        </ng-template>
+    </p-card>
+</div>
+
+<app-footer></app-footer>
